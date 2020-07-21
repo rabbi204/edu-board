@@ -2,7 +2,7 @@
 
 This is a learning purpose project for student student result calculation. We use some programming language here.
 
-#### Language list 
+#### Language Use
 
 - HTML 5
 - CSS 3
