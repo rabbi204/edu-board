@@ -16,34 +16,34 @@ This is a learning purpose project for student student result calculation. We us
 #### Database class Design
 
 ```php
-	require_once "../../config.php"
-	namespace Edu\Board\Support;
+require_once "../../config.php"
+namespace Edu\Board\Support;
+
+/**
+ * Database Managements
+ */
+abstract class Database
+{
+	
+	/**
+	 * Server Information
+	 */
+	private $host = HOST;
+	private $user = USER;
+	private $pass = PASS;
+	private $db = DB;
+	private $connection;
 
 	/**
-	 * Database Managements
+	 * Database connection
 	 */
-	abstract class Database
+	private function connection()
 	{
-		
-		/**
-		 * Server Information
-		 */
-		private $host = HOST;
-		private $user = USER;
-		private $pass = PASS;
-		private $db = DB;
-		private $connection;
-
-		/**
-		 * Database connection
-		 */
-		private function connection()
-		{
-			$this -> connection = new PDO("mysql:host=". $this -> host .";db_name=" .$this -> db,$this -> user,$this -> pass)
-		}
-
-
-
+		$this -> connection = new PDO("mysql:host=". $this -> host .";db_name=" .$this -> db,$this -> user,$this -> pass)
 	}
+
+
+
+}
 
 ```
