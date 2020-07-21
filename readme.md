@@ -4,11 +4,11 @@ This is a learning purpose project for student student result calculation. We us
 
 #### Language list 
 
--HTML 5
--CSS 3
--javaScript
--jquery
--PHP
--MySQL
--OOP
--PDO
+- HTML 5
+- CSS 3
+- javaScript
+- jquery
+- PHP
+- MySQL
+- OOP
+- PDO
