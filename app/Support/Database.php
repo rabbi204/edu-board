@@ -1,6 +1,7 @@
 <?php 
-	require_once "../../config.php"
 	namespace Edu\Board\Support;
+
+	use PDO;
 
 	/**
 	 * Database Managements
@@ -21,8 +22,27 @@
 		 * Database connection
 		 */
 		private function connection()
+		{			
+
+			return $this -> connection = new PDO("mysql:host=". $this -> host .";dbname=". $this -> db , $this -> user , $this -> pass);
+				
+		}
+
+		/**
+		 * data check
+		 */
+		public function dataCheck($tbl, $data)
 		{
-			$this -> connection = new PDO("mysql:host=". $this -> host .";db_name=" .$this -> db,$this -> user,$this -> pass)
+			$stmt = $this -> connection() -> prepare("SELECT * FROM $tbl WHERE email='$data' || uname='$data'");
+
+			$stmt -> execute();
+
+			$num = $stmt -> rowCount();
+
+			return [
+				'num' => $num,
+				'data' => $stmt
+			];
 		}
 
 
