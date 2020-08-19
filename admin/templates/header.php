@@ -1,5 +1,26 @@
 <?php require_once "../config.php"; ?>
 <?php require_once "../vendor/autoload.php"; ?>
+<?php 
+
+    use Edu\Board\Support\Auth;
+
+    $auth = new Auth;
+
+ ?>
+<?php 
+
+    /**
+     * Logout system
+     */
+    
+    if (isset($_GET['logout']) AND $_GET['logout']=='success') {
+        $auth -> userLogout();
+    }
+
+
+ ?>
+
+
 <!DOCTYPE html>
 <html lang="en" class="app">
 <head>
@@ -14,10 +35,6 @@
 
 <body class="">
 
-
-
-
-
     <section class="vbox">
         <header class="bg-white header header-md navbar navbar-fixed-top-xs box-shadow">
             <div class="navbar-header aside-md dk">
@@ -30,10 +47,10 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown"> <span class="thumb-sm avatar pull-left">
                      <img src="images/<?php echo $_SESSION['photo']; ?>" alt="..."> </span><?php echo $_SESSION['name']; ?><b class="caret"></b> </a>
                     <ul class="dropdown-menu animated fadeInRight">
-                        <li> <span class="arrow top"></span> <a href="#">Settings</a> </li>
+                        <li> <span class="arrow top"></span> <a href="password_change.php">Settings</a> </li>
                         <li> <a href="profile.html">Profile</a> </li>
                         <li class="divider"></li>
-                        <li> <a href="modal.lockme.html" data-toggle="ajaxModal">Logout</a> </li>
+                        <li> <a href="?logout=success" data-toggle="ajaxModal">Logout</a> </li>
                     </ul>
                 </li>
             </ul>
